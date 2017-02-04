@@ -4,7 +4,8 @@
 # DRY up all the code below - there shouldn't be a single method duplicated between
 # any two classes.
 
-class SimpleCalculator
+
+module BasicCalculations
 
   def add(first_number, second_number)
     first_number + second_number
@@ -21,26 +22,19 @@ class SimpleCalculator
   def divide(first_number, second_number)
     first_number / second_number
   end
+
+end
+
+
+class SimpleCalculator
+
+  include BasicCalculations
 
 end
 
 class FancyCalculator
 
-  def add(first_number, second_number)
-    first_number + second_number
-  end
-
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
+  include BasicCalculations
 
   def square_root(number)
     Math.sqrt(number)
@@ -48,27 +42,7 @@ class FancyCalculator
 
 end
 
-class WhizBangCalculator
-
-  def add(first_number, second_number)
-    first_number + second_number
-  end
-
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
-
-  def square_root(number)
-    Math.sqrt(number)
-  end
+class WhizBangCalculator < FancyCalculator
 
   def hypotenuse(first_number, second_number)
     Math.hypot(first_number, second_number)
@@ -84,3 +58,14 @@ end
 
 # Copy your driver code from the previous exercise and more below:
 
+calculation1 = FancyCalculator.new
+puts calculation1.divide(6, 5)
+
+calculation2 = SimpleCalculator.new
+puts calculation2.multiply(4, 2)
+
+calculation3 = WhizBangCalculator.new
+puts calculation3.square_root(4)
+
+calculation4 = WhizBangCalculator.new
+puts calculation4.multiply(4, 2)

@@ -41,9 +41,28 @@ class FancyCalculator < SimpleCalculator
 end
 
 # Write your own driver code below:
+puts "TESTING BEGINS"
 
 calculation1 = FancyCalculator.new
-puts calculation1.divide(6, 5)
+result = calculation1.divide(6, 5)
+
+puts "Your method has returned:"
+puts result
+
+if result == 1 
+  puts "PASS: The FancyCalculator inherited SimpleCalculator"
+else
+  puts "F"
+end
 
 calculation2 = SimpleCalculator.new
-puts calculation2.multiply(4, 2)
+result = calculation2.multiply(4, 2)
+
+puts "Your method has returned:"
+puts result
+
+if result == 8 
+  puts "PASS: SimpleCalculator works"
+else
+  puts "F"
+end
