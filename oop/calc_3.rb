@@ -59,13 +59,50 @@ end
 # Copy your driver code from the previous exercise and more below:
 
 calculation1 = FancyCalculator.new
-puts calculation1.divide(6, 5)
+result = calculation1.divide(6, 5)
+
+puts "Your method has returned:"
+puts result
+
+if result == 1 
+  puts "PASS: The FancyCalculator inherited SimpleCalculator"
+else
+  puts "F"
+end
 
 calculation2 = SimpleCalculator.new
-puts calculation2.multiply(4, 2)
+result = calculation2.multiply(4, 2)
+
+puts "Your method has returned:"
+puts result
+
+if result == 8 
+  puts "PASS: SimpleCalculator works"
+else
+  puts "F"
+end
 
 calculation3 = WhizBangCalculator.new
-puts calculation3.square_root(4)
+result = calculation3.square_root(4)
+
+puts "Testing the square root method on Whiz Bang Calculator"
+
+puts "Your method has returned:"
+puts result
+
+if result == 2
+  puts "PASS: The WhizBangCalculator inherited FancyCalculator"
+else
+  puts "F"
+end
 
 calculation4 = WhizBangCalculator.new
-puts calculation4.multiply(4, 2)
+result = calculation4.multiply(4, 2)
+
+puts "Testing the multiply method on Whiz Bang Calculator"
+
+if result == 8
+  puts "PASS: The WhizBangCalculator inherited the FancyCalculator which includes the module: BasicCalculations"
+else
+  puts "F"
+end
